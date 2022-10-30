@@ -82,7 +82,7 @@ public class MovieController {
 //    Return List of movies name(List()) wrapped in a ResponseEntity object
 //    Controller Name - findAllMovies
 
-    @GetMapping("get-all-movies")
+    @GetMapping("/get-all-movies")
     public ResponseEntity<List<Movie>> findAllMovies(){
         return new ResponseEntity<>(movieService.getListOfAllMovies(), HttpStatus.OK);
     }
@@ -91,11 +91,11 @@ public class MovieController {
 //    Pass director’s name as request parameter
 //    Return success message wrapped in a ResponseEntity object
 //    Controller Name - deleteDirectorByName
-    @DeleteMapping("delete-director-by-name")
-    public ResponseEntity<String> deleteDirectorByName(@RequestParam("name") String name){
-        movieService.deleteDirByName(name);
-        return new ResponseEntity<>("Success", HttpStatus.OK);
-    }
+//    @DeleteMapping("delete-director-by-name")
+//    public ResponseEntity<String> deleteDirectorByName(@RequestParam("name") String name){
+//        movieService.deleteDirByName(name);
+//        return new ResponseEntity<>("Success", HttpStatus.OK);
+//    }
 
 //    Delete all directors and all movies by them from the records: DELETE /movies/delete-all-directors
 //    No params or body required
