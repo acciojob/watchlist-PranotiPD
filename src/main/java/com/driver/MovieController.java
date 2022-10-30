@@ -19,10 +19,10 @@ public class MovieController {
     @Autowired
     MovieService movieService;
     @PostMapping("add-movie")
-    public ResponseEntity<String> addMovie(@RequestBody() Movie movie){
+    public ResponseEntity<Movie> addMovie(@RequestBody() Movie movie){
 
         movieService.addMovie(movie);
-        return new ResponseEntity<>("Success", HttpStatus.CREATED );
+        return new ResponseEntity<>(movie, HttpStatus.CREATED );
     }
 
 //    Add a director: POST /movies/add-director
