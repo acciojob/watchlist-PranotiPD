@@ -91,11 +91,11 @@ public class MovieController {
 //    Pass director’s name as request parameter
 //    Return success message wrapped in a ResponseEntity object
 //    Controller Name - deleteDirectorByName
-//    @DeleteMapping("delete-director-by-name")
-//    public ResponseEntity<String> deleteDirectorByName(@RequestParam("name") String name){
-//        movieService.deleteDirByName(name);
-//        return new ResponseEntity<>("Success", HttpStatus.OK);
-//    }
+    @DeleteMapping("delete-director-by-name")
+    public ResponseEntity<String> deleteDirectorByName(@RequestParam("name") String name){
+        movieService.deleteDirByName(name);
+        return new ResponseEntity<>("Success", HttpStatus.OK);
+    }
 
 //    Delete all directors and all movies by them from the records: DELETE /movies/delete-all-directors
 //    No params or body required
@@ -104,8 +104,8 @@ public class MovieController {
 //    (Note that there can be some movies on your watchlist that aren’t mapped to any of the director.
 //     Make sure you do not remove them.)
 
-//    @DeleteMapping("delete-all-directors")
-//    public ResponseEntity<String> deleteAllDirectors(){
-//        return new ResponseEntity<>("Success", HttpStatus.OK);
-//    }
+    @DeleteMapping("delete-all-directors")
+    public ResponseEntity<String> deleteAllDirectors(){
+        return new ResponseEntity<>("Success", HttpStatus.OK);
+    }
 }
