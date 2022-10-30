@@ -41,10 +41,10 @@ public class MovieRepository {
         }
         return movieList;
     }
-    public List<Movie> getListOfMoviesFromDB(){
-        List<Movie> movieList = new ArrayList<>();
+    public List<String> getListOfMoviesFromDB(){
+        List<String> movieList = new ArrayList<>();
         for (Map.Entry<String, Movie> movieEntry: MovieMap.entrySet()){
-            movieList.add(movieEntry.getValue());
+            movieList.add(movieEntry.getValue().getName());
         }
         return movieList;
     }

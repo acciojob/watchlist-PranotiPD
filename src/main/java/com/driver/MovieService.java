@@ -32,7 +32,7 @@ public class MovieService {
     public List<String> getMovieListByDirName(String name){
         return movieRepository.getMoviesByDirectorName(name);
     }
-    public List<Movie> getListOfAllMovies(){
+    public List<String> getListOfAllMovies(){
         return movieRepository.getListOfMoviesFromDB();
     }
     public void deleteDirByName(String name){
