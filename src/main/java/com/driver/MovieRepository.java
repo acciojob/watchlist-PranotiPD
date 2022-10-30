@@ -32,11 +32,11 @@ public class MovieRepository {
     public Director getDirectorByNameDB(String name){
         return DirectorMap.get(name);
     }
-    public List<Movie> getMoviesByDirectorName(String name){
-        List<Movie> movieList = new ArrayList<>();
+    public List<String> getMoviesByDirectorName(String name){
+        List<String> movieList = new ArrayList<>();
         for(Map.Entry<Movie, Director> movieDirectorEntry: MovieDirectorMap.entrySet()){
             if(movieDirectorEntry.getValue().getName().equals(name)){
-                movieList.add(movieDirectorEntry.getKey());
+                movieList.add(movieDirectorEntry.getKey().getName());
             }
         }
         return movieList;

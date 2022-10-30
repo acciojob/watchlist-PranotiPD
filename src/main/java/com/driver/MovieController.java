@@ -19,10 +19,10 @@ public class MovieController {
     @Autowired
     MovieService movieService;
     @PostMapping("add-movie")
-    public ResponseEntity<String> addMovie(@RequestBody() Movie movie){
+    ResponseEntity<String> addMovie(@RequestBody() Movie movie){
 
         movieService.addMovie(movie);
-        return new ResponseEntity<>("success", HttpStatus.CREATED );
+        return new ResponseEntity<>("Success", HttpStatus.CREATED );
     }
 
 //    Add a director: POST /movies/add-director
@@ -30,11 +30,11 @@ public class MovieController {
 //    Return success message wrapped in a ResponseEntity object
 //    Controller Name - addDirector
     @PostMapping("add-director")
-    public ResponseEntity<String> addDirector(@RequestBody() Director director){
+    ResponseEntity<String> addDirector(@RequestBody() Director director){
 
 //        movieService.
         movieService.addDirector(director);
-        return new ResponseEntity<>("success", HttpStatus.CREATED);
+        return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
 
 //    Pair an existing movie and director: PUT /movies/add-movie-director-pair
@@ -43,7 +43,7 @@ public class MovieController {
 //    Controller Name - addMovieDirectorPair
 
     @PostMapping ("add-movie-director-pair")
-    public ResponseEntity<String> addMovieDirectorPair(@RequestParam("name1") String name1, @RequestParam("name2")String name2 ){
+    ResponseEntity<String> addMovieDirectorPair(@RequestParam("name1") String name1, @RequestParam("name2")String name2 ){
 
         movieService.addMovieDirector(name1, name2);
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
@@ -54,7 +54,7 @@ public class MovieController {
 //    Return Movie object wrapped in a ResponseEntity object
 //    Controller Name - getMovieByName
     @GetMapping("get-movie-by-name/{name}")
-    public ResponseEntity<Movie> getMovieByName(@PathVariable("name") String name){
+    ResponseEntity<Movie> getMovieByName(@PathVariable("name") String name){
         return new ResponseEntity<>(movieService.getMovieByName(name),HttpStatus.OK );
     }
 
@@ -63,7 +63,7 @@ public class MovieController {
 //    Return Director object wrapped in a ResponseEntity object
 //    Controller Name - getDirectorByName
     @GetMapping("get-director-by-name/{name}")
-    public ResponseEntity<Director> getDirectorByName(@PathVariable("name") String name){
+    ResponseEntity<Director> getDirectorByName(@PathVariable("name") String name){
         return new ResponseEntity<>(movieService.getDirectorByName(name), HttpStatus.OK);
     }
 
@@ -73,7 +73,7 @@ public class MovieController {
 //    Controller Name - getMoviesByDirectorName
 
     @GetMapping("get-movies-by-director-name/{director}")
-    public ResponseEntity<List<Movie>> getMoviesByDirectorName(@PathVariable("name") String name){
+    ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable("name") String name){
         return new ResponseEntity<>(movieService.getMovieListByDirName(name), HttpStatus.OK);
     }
 
@@ -83,7 +83,7 @@ public class MovieController {
 //    Controller Name - findAllMovies
 
     @GetMapping("get-all-movies")
-    public ResponseEntity<List<Movie>> findAllMovies(){
+    ResponseEntity<List<Movie>> findAllMovies(){
         return new ResponseEntity<>(movieService.getListOfAllMovies(), HttpStatus.OK);
     }
 
@@ -92,8 +92,8 @@ public class MovieController {
 //    Return success message wrapped in a ResponseEntity object
 //    Controller Name - deleteDirectorByName
     @DeleteMapping("delete-director-by-name")
-    public ResponseEntity<String> deleteDirectorByName(@RequestParam("name") String name){
-        movieService.deleteDirByName(name);
+    ResponseEntity<String> deleteDirectorByName(@RequestParam("name") String name){
+//        movieService.deleteDirByName(name);
         return new ResponseEntity<>("Success", HttpStatus.OK);
     }
 
@@ -105,7 +105,7 @@ public class MovieController {
 //     Make sure you do not remove them.)
 
     @DeleteMapping("delete-all-directors")
-    public ResponseEntity<String> deleteAllDirectors(){
+    ResponseEntity<String> deleteAllDirectors(){
         return new ResponseEntity<>("Success", HttpStatus.OK);
     }
 }
